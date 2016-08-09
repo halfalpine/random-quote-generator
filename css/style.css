@@ -1,0 +1,42 @@
+body {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+.alignleft {
+  float: left;
+  margin-left: 30px;
+}
+
+.alignright {
+  float: right;
+  margin-right: 30px;
+}
+
+#box {
+  margin-top: 20%;
+  background-color: white;
+  text-align: center;
+  padding: 40px;
+  border-radius: 5px;
+}
+
+#quote-graph {
+  font-size: 1.8em;
+}
+
+#attribution-space {
+  font-size: 1.2em;
+  margin-right: 30px;
+}
+
+#twitter-button:hover {
+  opacity: 0.5;
+}
+
+#quote-button {
+  color: white;
+}
+
+#quote-button:hover {
+  opacity: 0.5;
+}
