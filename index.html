@@ -13,13 +13,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
-  <script type="text/javascript" src="js/default.js"></script>
+  <script src="https://use.fontawesome.com/8e3494ed47.js"></script>
 
 </head>
 <body>
@@ -32,17 +29,37 @@
         <span id="quote-space">Filler text</span>
           </p>
           <p class="text-right" id="attribution-space">-attribution</p>
-        </div>
+        </div class="row">
         <!--quote-attribution-->
-        <row>
+        <div class="row">
           <a href="https://twitter.com/intent/tweet" id="twitter-link"><i class="fa fa-3x fa-twitter-square alignleft" id="twitter-button"></i></a>
           <button class="alignright btn" id="quote-button">Inspire me!</button>
-        </row>
+        </div>
       </div>
       <!--box-->
     </div>
     <!--row-->
   </div>
   <!--container-fluid-->
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/default.js"></script>
+
 </body>
 </html>
