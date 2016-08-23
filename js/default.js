@@ -1,9 +1,10 @@
 $(document).ready(function() {
 
-  let data = {
+  var dataX = {
     last: 100
-  }
-  let quotes = [{
+  };
+
+  var quotes = [{
     quote: "I find it fascinating that our planet still has areas where no modern technology can save you, where you are reduced to your most basic - and essential - self. This natural space creates demanding situations that can lead to suffering and death, but also generate a wild interior richness. Ultimately, there is no way of reconciling these contradictions. All I can do it try to live within their margins, in the narrow boundary between joy and horror.",
     author: "Jean-Cristophe Lafaille"
   }, {
@@ -45,21 +46,21 @@ $(document).ready(function() {
   }, {
     quote: "Annapurna, to which we had gone empty-handed, was a treasure on which we should live the rest of our days. With this realization we turn the page: a new life begins. There are other Annapurnas in the lives of men.",
     author: "Maurice Herzog"
-  }]
+  }];
 
   function popitup(url) {
     newwindow = window.open(url, 'name', 'height=850, width=730');
     if (window.focus) {
-      newwindow.focus()
+      newwindow.focus();
     }
     return false;
-  };
+  }
 
   function newQuote() {
-    let random = newRandom(data.last);
-    let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-    let quote = quotes[random].quote
-    let author = quotes[random].author
+    var random = newRandom(dataX.last);
+    var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    var quote = quotes[random].quote;
+    var author = quotes[random].author;
     $("#quote-space").html(quote);
     $("#attribution-space").html("-" + author);
     $("body").css("background-color", randomColor);
@@ -68,22 +69,48 @@ $(document).ready(function() {
       "background-color": randomColor,
       "border-color": randomColor
     });
-  };
-  
+  }
+
   function newRandom(num) {
-    let random = Math.floor(Math.random() * quotes.length);
-    random === num ? random++ : random;
-    data.last = random;
+    var random = Math.floor(Math.random() * quotes.length);
+    if (random === num) {
+      random++;
+    }
+    // random === num ? random++ : random;
+    dataX.last = random;
     return random;
-  };
+  }
 
   function tweet() {
     var text = $("#quote-space").html() + " " + $("#attribution-space").html();
-    popitup("https://twitter.com/intent/tweet?text=" + text + "&hashtags=quotes")
-  };
+    popitup("https://twitter.com/intent/tweet?text=" + text + "&hashtags=quotes");
+  }
+
+  // Function below copied from Twitter; populates pop-up window
+  window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) {
+      return t;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+
+    return t;
+  }(document, "script", "twitter-wjs"));
+
 
   $("#twitter-button").on("click", tweet);
-  $("#quote-button").on("click", () => newQuote());
+  $("#quote-button").on("click", function(){
+    newQuote();
+  });
 
   newQuote();
 });
